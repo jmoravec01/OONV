@@ -6,40 +6,22 @@ using System.Threading.Tasks;
 namespace OONV
 {
     public class Game
-{
-        private bool end = false;
-        public void Run(List<Character> Heroes, List<Character> Enemies)
+    {
+        // checks HP of all characters in list
+        public static List<Character> ListHPCheck(List<Character> list)
         {
-            while (end == false)
+            foreach(Character postava in list)
             {
-                if (CheckWin(Heroes))
+                if (postava.hp <= 0)
                 {
-                    Console.WriteLine("Winners are ENEMIES!");
-                }
-                else if (CheckWin(Enemies))
-                {
-                    Console.WriteLine("Winners are HEROES!");
-                }
-                else
-                {
-
+                    list.Remove(postava);
+                    break;
                 }
             }
+            return list;
         }
 
-        public static void Utok (Character character1, Character character2)
-        {
-            int dmgCalc = character1.DealDmg() - character2.def;
-            if (dmgCalc > 0)
-            {
-                character2.GetDmg(dmgCalc);
-                Console.WriteLine("Champion {0} dealt {1}⚔️!", character1.Name, dmgCalc);
-            }
-            else
-            {
-                Console.WriteLine("Champion {0} did not give you any damage!", character1.Name);
-            }
-        }
+        // checks if list is empty (0)
         public static bool CheckWin (List<Character> list)
         {
             if (list.Count == 0)
@@ -51,17 +33,44 @@ namespace OONV
                 return false;
             }
         }
-        public static List<Character> ListHPCheck(List<Character> list)
+
+
+        // method for DMG DEAL
+        public static void Fight (Character character1, Character character2)
         {
-            foreach(Character postava in list)
+            System.Console.WriteLine("{0} is fighting {1}.", character1.Name, character2.Name);
+            int dmgCalc = character1.DealDmg() - character2.def;
+            if (dmgCalc > 0)
             {
-                if(postava.hp <= 0)
+                character2.GetDmg(dmgCalc);
+                Console.WriteLine("Champion {0} dealt {1}⚔️!", character1.Name, dmgCalc);
+                Console.WriteLine("{0}`s HPs went down to {1}", character2.Name, character2.hp);
+            }
+            else
+            {
+                Console.WriteLine("Champion {0} did not give any damage!", character1.Name);
+            }
+        }
+
+        public static void Run (List<Character> Heroes, List<Character> Enemies)
+        {
+            while(CheckWin(Heroes) == false)
+            {
+                Fight(Heroes[0], Enemies[0]);
+                ListHPCheck(Heroes);
+                ListHPCheck(Enemies);
+
+                if (CheckWin(Enemies))
                 {
-                    list.Remove(postava);
+                    Console.WriteLine("Winner is HERO!");
+                    break;
+                }
+                if (CheckWin(Heroes))
+                {
+                    Console.WriteLine("Winner is ENEMY!");
                     break;
                 }
             }
-            return list;
         }
     }
 }

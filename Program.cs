@@ -1,5 +1,5 @@
 ﻿// JAKUB MORAVEC ST96122
-// seminárka -> MEMENTO
+// seminárka -> MEMENTO, BUILDER
 // main postava Sandman, příšery, nepřátelé
 // třídy: válečník, lukostřelec, mág
 //      válečník countruje mága, staty HP/DMG/OBRANA: 100/20
@@ -20,8 +20,13 @@ namespace OONV
             Warrior Pepa = new Warrior("Pepa");
             Morpheus Gandalf = new Morpheus("Gandalf");
 
-            Pepa.PrintStats();
-            Gandalf.PrintHP();
+            Heroes.Add(Gandalf);
+            Enemies.Add(Pepa);
+
+            // Pepa.PrintStats();
+            // Gandalf.PrintHP();
+            // System.Console.WriteLine(Gandalf.hp);
+            Game.Run(Heroes, Enemies);
         }
     }
 }
