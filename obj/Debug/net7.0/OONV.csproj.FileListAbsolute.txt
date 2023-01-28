@@ -1,0 +1,15 @@
+D:\MEGA\Škola\Programy\C#\OONV\obj\Debug\net7.0\OONV.csproj.AssemblyReference.cache
+D:\MEGA\Škola\Programy\C#\OONV\obj\Debug\net7.0\OONV.GeneratedMSBuildEditorConfig.editorconfig
+D:\MEGA\Škola\Programy\C#\OONV\obj\Debug\net7.0\OONV.AssemblyInfoInputs.cache
+D:\MEGA\Škola\Programy\C#\OONV\obj\Debug\net7.0\OONV.AssemblyInfo.cs
+D:\MEGA\Škola\Programy\C#\OONV\obj\Debug\net7.0\OONV.csproj.CoreCompileInputs.cache
+D:\MEGA\Škola\Programy\C#\OONV\bin\Debug\net7.0\OONV.exe
+D:\MEGA\Škola\Programy\C#\OONV\bin\Debug\net7.0\OONV.deps.json
+D:\MEGA\Škola\Programy\C#\OONV\bin\Debug\net7.0\OONV.runtimeconfig.json
+D:\MEGA\Škola\Programy\C#\OONV\bin\Debug\net7.0\OONV.dll
+D:\MEGA\Škola\Programy\C#\OONV\bin\Debug\net7.0\OONV.pdb
+D:\MEGA\Škola\Programy\C#\OONV\obj\Debug\net7.0\OONV.dll
+D:\MEGA\Škola\Programy\C#\OONV\obj\Debug\net7.0\refint\OONV.dll
+D:\MEGA\Škola\Programy\C#\OONV\obj\Debug\net7.0\OONV.pdb
+D:\MEGA\Škola\Programy\C#\OONV\obj\Debug\net7.0\OONV.genruntimeconfig.cache
+D:\MEGA\Škola\Programy\C#\OONV\obj\Debug\net7.0\ref\OONV.dll
