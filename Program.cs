@@ -19,9 +19,11 @@ namespace OONV
 
             Warrior Pepa = new Warrior("Pepa");
             Morpheus Gandalf = new Morpheus("Gandalf");
+            Archer Josef = new Archer("Josef");
+            BoxingBag Minecraft = new BoxingBag("Minecraft");
 
             Heroes.Add(Gandalf);
-            Enemies.Add(Pepa);
+            Enemies.Add(Minecraft);
 
             // Pepa.PrintStats();
             // Gandalf.PrintHP();

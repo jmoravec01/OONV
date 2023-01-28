@@ -38,17 +38,18 @@ namespace OONV
         // method for DMG DEAL
         public static void Fight (Character character1, Character character2)
         {
-            System.Console.WriteLine("{0} is fighting {1}.", character1.Name, character2.Name);
+            System.Console.WriteLine("|{0}| is fighting |{1}|", character1.Name, character2.Name);
             int dmgCalc = character1.DealDmg() - character2.def;
             if (dmgCalc > 0)
             {
                 character2.GetDmg(dmgCalc);
-                Console.WriteLine("Champion {0} dealt {1}⚔️!", character1.Name, dmgCalc);
-                Console.WriteLine("{0}`s HPs went down to {1}", character2.Name, character2.hp);
+                Console.WriteLine("Champion |{0}| dealt {1}DMG!", character1.Name, dmgCalc);
+                Console.WriteLine("|{0}| HPs went down to {1}HP", character2.Name, character2.hp);
+                System.Console.WriteLine("---------------------------------");
             }
             else
             {
-                Console.WriteLine("Champion {0} did not give any damage!", character1.Name);
+                Console.WriteLine("Champion |{0}| did not give any damage!", character1.Name);
             }
         }
 
@@ -56,10 +57,20 @@ namespace OONV
         {
             while(CheckWin(Heroes) == false)
             {
-                Fight(Heroes[0], Enemies[0]);
-                ListHPCheck(Heroes);
-                ListHPCheck(Enemies);
-
+                int kontrola = 0;
+                if (kontrola == 0)
+                {
+                    Fight(Heroes[0], Enemies[0]);
+                    ListHPCheck(Enemies);
+                    kontrola = 1;
+                }
+                if (kontrola == 1)
+                {
+                    Fight(Enemies[0], Heroes[0]);
+                    ListHPCheck(Heroes);
+                    kontrola = 0;
+                }
+                
                 if (CheckWin(Enemies))
                 {
                     Console.WriteLine("Winner is HERO!");
