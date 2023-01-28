@@ -22,7 +22,7 @@ namespace OONV
         }
 
         // checks if list is empty (0)
-        public static bool CheckWin (List<Character> list)
+        public static bool CheckList (List<Character> list)
         {
             if (list.Count == 0)
             {
@@ -34,18 +34,32 @@ namespace OONV
             }
         }
 
+        public static void CheckEndgame (List<Character> Heroes, List<Character> Enemies)
+        {
+            if (CheckList(Enemies))
+            {
+                Console.WriteLine("Winner is HERO!");
+                System.Environment.Exit(0);
+            }
+            else if (CheckList(Heroes))
+            {
+                Console.WriteLine("Winner is ENEMY!");
+                System.Environment.Exit(0);
+            }
+        }
+
 
         // method for DMG DEAL
         public static void Fight (Character character1, Character character2)
         {
-            System.Console.WriteLine("|{0}| is fighting |{1}|", character1.Name, character2.Name);
+            Console.WriteLine("|{0}| is fighting |{1}|", character1.Name, character2.Name);
             int dmgCalc = character1.DealDmg() - character2.def;
             if (dmgCalc > 0)
             {
                 character2.GetDmg(dmgCalc);
                 Console.WriteLine("Champion |{0}| dealt {1}DMG!", character1.Name, dmgCalc);
                 Console.WriteLine("|{0}| HPs went down to {1}HP", character2.Name, character2.hp);
-                System.Console.WriteLine("---------------------------------");
+                Console.WriteLine("---------------------------------");
             }
             else
             {
@@ -55,32 +69,28 @@ namespace OONV
 
         public static void Run (List<Character> Heroes, List<Character> Enemies)
         {
-            while(CheckWin(Heroes) == false)
+            bool end = false;
+            int controlNumber = 0;
+            while(end == false)
             {
-                int kontrola = 0;
-                if (kontrola == 0)
+                CheckEndgame(Heroes, Enemies);
+
+                if (controlNumber == 0)
                 {
                     Fight(Heroes[0], Enemies[0]);
                     ListHPCheck(Enemies);
-                    kontrola = 1;
+                    controlNumber = 1;
+                    continue;
                 }
-                if (kontrola == 1)
+                else if (controlNumber == 1)
                 {
                     Fight(Enemies[0], Heroes[0]);
                     ListHPCheck(Heroes);
-                    kontrola = 0;
+                    controlNumber = 0;
+                    continue;
                 }
-                
-                if (CheckWin(Enemies))
-                {
-                    Console.WriteLine("Winner is HERO!");
-                    break;
-                }
-                if (CheckWin(Heroes))
-                {
-                    Console.WriteLine("Winner is ENEMY!");
-                    break;
-                }
+
+                CheckEndgame(Heroes, Enemies);           
             }
         }
     }
