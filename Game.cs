@@ -78,6 +78,7 @@ namespace OONV
 
         }
 
+        // input matters
         public static void GameWelcome ()
         {
             Console.WriteLine("------------------------");
@@ -85,10 +86,16 @@ namespace OONV
             int desiredNumber = 111;
             int quitNumber = 999;
             int enteredNumber;
+            int counter = 0;
             bool success = false;
 
             while (!success) 
             {
+                if (counter == 5)
+                {
+                    Console.WriteLine("Okey, you are trolling. I am shutting down myself.");
+                    System.Environment.Exit(0);
+                }
                 Console.Write("To START the game -> enter number 111. To QUIT -> enter number 999: ");
                 try
                 {
@@ -101,15 +108,17 @@ namespace OONV
                 {
                     Console.WriteLine("Okey, have a nice day. Bye!");
                     System.Environment.Exit(0);
-                } 
+                }
                 else 
                 {
-                    Console.WriteLine("It´s just 111/999. Try it again!");
+                    counter += 1;
+                    Console.WriteLine("It`s just 111/999. Try it again!");
                 }
                 } 
                 catch (FormatException) 
                 {
-                    Console.WriteLine("It´s just 111/999. Try it again!");
+                    counter += 1;
+                    Console.WriteLine("It`s just 111/999. Try it again!");
                 }
             }
         }
