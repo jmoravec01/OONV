@@ -70,12 +70,54 @@ namespace OONV
 
         public static void PlayerMenu ()
         {
-
+            Console.WriteLine("------------------------");
+            Console.WriteLine("1. Write possible heroes.");
+            Console.WriteLine("2. Write all about heroes.");
+            Console.WriteLine("3. Choose hero.");
+            Console.WriteLine("4. Write all about characters.");
+            Console.WriteLine("5. Write possible enemies.");
+            Console.WriteLine("6. Write all about enemies.");
+            Console.WriteLine("------------------------");
+            
+            int enteredNumber;
+            bool success = false;
+            while (!success) 
+            {
+                try
+                {
+                    Console.Write("What is your choice: ");
+                    enteredNumber = int.Parse(Console.ReadLine());
+                    if (1 <= enteredNumber && enteredNumber <= 6)
+                    {
+                        success = true;
+                    }
+                } 
+                catch (FormatException) 
+                {
+                    Console.WriteLine("That`s not an option! Try it again!");
+                }
+            }
+            
         }
 
         public static void AIMenu ()
         {
+        }
 
+        public static void printCharacters (List<Character> list)
+        {
+            for (int x = 0; x < list.Count; x++)
+            {
+                Console.WriteLine("Name: |{0}|, class: |{1}|", list[x].Name, list[x].GetType().Name);
+            }
+        }
+
+        public static void printCharactersWithStats (List<Character> list)
+        {
+            for (int x = 0; x < list.Count; x++)
+            {
+                Console.WriteLine("Name: |{0}|, class: |{1}|, stats: |{2}DMG||{3}HP||{4}DEF|", list[x].Name, list[x].GetType().Name, list[x].Dmg, list[x].Hp, list[x].Def);
+            }
         }
 
         // input matters
