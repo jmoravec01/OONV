@@ -25,13 +25,12 @@ namespace OONV
             Hard Minecraft3 = new Hard("Minecraft3");
 
             Heroes.Add(Gandalf);
+            Heroes.Add(Pepa);
             Enemies.Add(Minecraft);
             Enemies.Add(Minecraft2);
             Enemies.Add(Minecraft3);
 
-            // Pepa.PrintStats();
-            // Gandalf.PrintHP();
-            // System.Console.WriteLine(Gandalf.hp);
+            Game.GameWelcome();
             Game.Run(Heroes, Enemies);
         }
     }

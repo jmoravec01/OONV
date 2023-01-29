@@ -38,12 +38,12 @@ namespace OONV
         {
             if (CheckList(Enemies))
             {
-                Console.WriteLine("Winner is HERO!");
+                Console.WriteLine("Winners are HEROES!");
                 System.Environment.Exit(0);
             }
             else if (CheckList(Heroes))
             {
-                Console.WriteLine("Winner is ENEMY!");
+                Console.WriteLine("Winners are ENEMIES!");
                 System.Environment.Exit(0);
             }
         }
@@ -57,13 +57,60 @@ namespace OONV
             if (dmgCalc > 0)
             {
                 character2.GetDmg(dmgCalc);
-                Console.WriteLine("Champion |{0}| dealt {1}DMG!", character1.Name, dmgCalc);
-                Console.WriteLine("|{0}| HPs went down to {1}HP", character2.Name, character2.hp);
+                Console.WriteLine("Champion |{0}| dealt [{1}]DMG!", character1.Name, dmgCalc);
+                Console.WriteLine("|{0}| HPs went down to [{1}]HP", character2.Name, character2.hp);
                 Console.WriteLine("---------------------------------");
             }
             else
             {
                 Console.WriteLine("Champion |{0}| did not give any damage!", character1.Name);
+                Console.WriteLine("---------------------------------------");
+            }
+        }
+
+        public static void PlayerMenu ()
+        {
+
+        }
+
+        public static void AIMenu ()
+        {
+
+        }
+
+        public static void GameWelcome ()
+        {
+            Console.WriteLine("------------------------");
+            Console.WriteLine("Welcome to the RPG GAME!");
+            int desiredNumber = 111;
+            int quitNumber = 999;
+            int enteredNumber;
+            bool success = false;
+
+            while (!success) 
+            {
+                Console.Write("To START the game -> enter number 111. To QUIT -> enter number 999: ");
+                try
+                {
+                enteredNumber = int.Parse(Console.ReadLine());
+                if (enteredNumber == desiredNumber)
+                {
+                    success = true;
+                }
+                else if (enteredNumber == quitNumber)
+                {
+                    Console.WriteLine("Okey, have a nice day. Bye!");
+                    System.Environment.Exit(0);
+                } 
+                else 
+                {
+                    Console.WriteLine("It´s just 111/999. Try it again!");
+                }
+                } 
+                catch (FormatException) 
+                {
+                    Console.WriteLine("It´s just 111/999. Try it again!");
+                }
             }
         }
 
@@ -71,6 +118,7 @@ namespace OONV
         {
             bool end = false;
             int controlNumber = 0;
+
             while(end == false)
             {
                 CheckEndgame(Heroes, Enemies);
