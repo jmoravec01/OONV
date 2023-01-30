@@ -30,10 +30,10 @@ namespace OONV
             Enemies.Add(Minecraft2);
             Enemies.Add(Minecraft3);
 
-            // Game.GameWelcome();
-            // Game.Run(Heroes, Enemies);
+            Game.GameWelcome();
+            Game.Run(Heroes, Enemies);
             // Game.printCharactersWithStats(Heroes);
-            Game.PlayerMenu();
+
         }
     }
 }

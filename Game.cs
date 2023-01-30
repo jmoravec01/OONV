@@ -68,38 +68,6 @@ namespace OONV
             }
         }
 
-        public static void PlayerMenu ()
-        {
-            Console.WriteLine("------------------------");
-            Console.WriteLine("1. Write possible heroes.");
-            Console.WriteLine("2. Write all about heroes.");
-            Console.WriteLine("3. Choose hero.");
-            Console.WriteLine("4. Write all about characters.");
-            Console.WriteLine("5. Write possible enemies.");
-            Console.WriteLine("6. Write all about enemies.");
-            Console.WriteLine("------------------------");
-            
-            int enteredNumber;
-            bool success = false;
-            while (!success) 
-            {
-                try
-                {
-                    Console.Write("What is your choice: ");
-                    enteredNumber = int.Parse(Console.ReadLine());
-                    if (1 <= enteredNumber && enteredNumber <= 6)
-                    {
-                        success = true;
-                    }
-                } 
-                catch (FormatException) 
-                {
-                    Console.WriteLine("That`s not an option! Try it again!");
-                }
-            }
-            
-        }
-
         public static void AIMenu ()
         {
         }
@@ -118,6 +86,98 @@ namespace OONV
             {
                 Console.WriteLine("Name: |{0}|, class: |{1}|, stats: |{2}DMG||{3}HP||{4}DEF|", list[x].Name, list[x].GetType().Name, list[x].Dmg, list[x].Hp, list[x].Def);
             }
+        }
+
+        public static void YourTurn (List<Character> Heroes, List<Character> Enemies)
+        {
+            int enteredNumber;
+            bool success = false;
+            while (!success) 
+            {
+                Console.WriteLine("------------------------");
+                Console.WriteLine("1. Show possible heroes.");
+                Console.WriteLine("2. Show all about heroes.");
+                Console.WriteLine("3. Choose hero.");
+                Console.WriteLine("4. Fight.");
+                Console.WriteLine("5. Heal.");
+                Console.WriteLine("6. Show possible enemies.");
+                Console.WriteLine("7. Show all about enemies.");
+                Console.WriteLine("------------------------");
+
+                try
+                {
+                    Console.Write("What is your choice: ");
+                    enteredNumber = int.Parse(Console.ReadLine());
+                    if (1 <= enteredNumber && enteredNumber <= 7)
+                    {
+                        switch (enteredNumber)
+                        {
+                            case 1:
+                                Console.WriteLine(" ");
+                                printCharacters(Heroes);
+                                continue;
+                            case 2:
+                                Console.WriteLine(" ");
+                                printCharactersWithStats(Heroes);
+                                continue;
+                            case 3:
+                                Console.WriteLine(" ");
+                                SwapCharacters(Heroes);
+                                continue;
+                            case 4:
+                                break;
+                            case 5:
+                                break;
+                            case 6:
+                                continue;
+                            case 7:
+                                continue;
+                        }
+                    }
+                }
+                catch (FormatException) 
+                {
+                    Console.WriteLine("That`s not an option! Try it again!");
+                }
+            }
+        }
+
+        public static void AITurn (Character Hero, Character Enemy)
+        {
+            Fight(Enemy, Hero);
+        }
+
+        public static List<Character> SwapCharacters (List<Character> list)
+        {
+            Console.WriteLine("---------------------------------");
+            Console.WriteLine("You chose to swap main character!\n");
+            Console.WriteLine(" ");
+            for (int x = 0; x < list.Count; x++)
+            {
+                Console.WriteLine("{0}. Name: |{1}|, class: |{2}|", x+1, list[x].Name, list[x].GetType().Name);
+            }
+
+            int enteredNumber;
+            bool success = false;
+            int countList = list.Count;
+            while (!success) 
+            {
+                try
+                {
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Which one is it gonna be: ");
+                    enteredNumber = int.Parse(Console.ReadLine());
+                    if (1 <= enteredNumber && enteredNumber <= countList+1)
+                    {
+
+                    }
+                }
+                catch (FormatException) 
+                {
+                    Console.WriteLine("That`s not an option! Try it again!");
+                }
+            }
+            return list;
         }
 
         // input matters
@@ -169,6 +229,7 @@ namespace OONV
         {
             bool end = false;
             int controlNumber = 0;
+            int turns = 0;
 
             while(end == false)
             {
@@ -176,14 +237,14 @@ namespace OONV
 
                 if (controlNumber == 0)
                 {
-                    Fight(Heroes[0], Enemies[0]);
+                    YourTurn(Heroes, Enemies);
                     ListHPCheck(Enemies);
                     controlNumber = 1;
                     continue;
                 }
                 else if (controlNumber == 1)
                 {
-                    Fight(Enemies[0], Heroes[0]);
+                    AITurn(Heroes[0], Enemies[0]);
                     ListHPCheck(Heroes);
                     controlNumber = 0;
                     continue;
