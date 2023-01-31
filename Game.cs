@@ -40,6 +40,7 @@ namespace OONV
             {
                 Console.WriteLine("Winners are HEROES!");
                 Console.WriteLine(" ");
+                Console.WriteLine("------------Survivors------------");
                 printCharacters(Heroes);
                 System.Environment.Exit(0);
             }
@@ -47,6 +48,7 @@ namespace OONV
             {
                 Console.WriteLine("Winners are ENEMIES!");
                 Console.WriteLine(" ");
+                Console.Write("------------Survivors------------");
                 printCharacters(Enemies);
                 System.Environment.Exit(0);
             }
@@ -74,6 +76,7 @@ namespace OONV
             }
         }
 
+        // maybe fix over-HP-healing?
         public static void HealCharacter (Character character)
         {
             Console.WriteLine("------------------------");
