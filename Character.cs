@@ -43,14 +43,14 @@ namespace OONV
         {
             return new Memento(Name, Dmg, Hp, Def);
         }
-        
+
         public void MementoRollback(Memento backup)
         {
             Console.WriteLine("Starting rollback...");
-            this.name = backup.MementoName;
-            this.dmg = backup.MementoDmg;
-            this.hp = backup.MementoHp;
-            this.def = backup.MementoDef;
+            this.name = backup.getMementoName();
+            this.dmg = backup.getMementoDmg();
+            this.hp = backup.getMementoHp();
+            this.def = backup.getMementoDef();
             Console.WriteLine("Rollback done.");
         }
 //-----------------------------------------------------------------------------------

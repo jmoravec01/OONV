@@ -28,19 +28,20 @@ namespace OONV
 
             // HRA
 //-------------------------------------------
-            Game.GameWelcome();
-            Game.Run(Heroes, Enemies);
+            // Game.GameWelcome();
+            // Game.Run(Heroes, Enemies);
 //-------------------------------------------
 
             // MEMENTO
 //-----------------------------------------------------------------------
-            // MementoCareTaker _careTaker = new MementoCareTaker();
-            // _careTaker.backup = Gandalf.CreateMemento();
-            // System.Console.WriteLine(_careTaker.backup.MementoName);
-            // Gandalf.Name = "Sauron";
-            // System.Console.WriteLine(Gandalf.Name);
-            // Gandalf.MementoRollback(_careTaker.backup);
-            // System.Console.WriteLine(Gandalf.Name);
+            MementoCareTaker _careTaker = new MementoCareTaker();
+            _careTaker.backup = Gandalf.CreateMemento();
+            System.Console.WriteLine(_careTaker.backup.getMementoDmg);
+            System.Console.WriteLine(Gandalf.Dmg);
+            Gandalf.Dmg = 555;
+            System.Console.WriteLine(Gandalf.Dmg);
+            Gandalf.MementoRollback(_careTaker.backup);
+            System.Console.WriteLine(Gandalf.Dmg);
 //-----------------------------------------------------------------------
 
 
