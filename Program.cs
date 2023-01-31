@@ -1,10 +1,6 @@
 ﻿// JAKUB MORAVEC ST96122
 // seminárka -> MEMENTO, BUILDER
-// main postava Sandman, příšery, nepřátelé
-// třídy: válečník, lukostřelec, mág
-//      válečník countruje mága, staty HP/DMG/OBRANA: 100/20
-//      lukostřelec countruje válečníka, staty HP/DMG/OBRANA: 75/
-//      mág countruje lukostřelce, staty HP/DMG/OBRANA: 50/
+// třídy: válečník, lukostřelec, mág, Morpheus (OP)
 
 using System;
 
@@ -19,10 +15,10 @@ namespace OONV
 
             Warrior Pepa = new Warrior("Pepa");
             Morpheus Gandalf = new Morpheus("Gandalf");
-            Archer Josef = new Archer("Josef");
-            Hard Minecraft = new Hard("Minecraft");
-            Hard Minecraft2 = new Hard("Minecraft2");
-            Hard Minecraft3 = new Hard("Minecraft3");
+            Archer Geralt = new Archer("Josef");
+            Hard Minecraft = new Hard("Fišer");
+            Hard Minecraft2 = new Hard("Beránek");
+            Hard Minecraft3 = new Hard("Škvor");
 
             Heroes.Add(Gandalf);
             Heroes.Add(Pepa);
@@ -32,8 +28,6 @@ namespace OONV
 
             Game.GameWelcome();
             Game.Run(Heroes, Enemies);
-            // Game.printCharactersWithStats(Heroes);
-
         }
     }
 }

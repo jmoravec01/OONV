@@ -39,11 +39,15 @@ namespace OONV
             if (CheckList(Enemies))
             {
                 Console.WriteLine("Winners are HEROES!");
+                Console.WriteLine(" ");
+                printCharacters(Heroes);
                 System.Environment.Exit(0);
             }
             else if (CheckList(Heroes))
             {
                 Console.WriteLine("Winners are ENEMIES!");
+                Console.WriteLine(" ");
+                printCharacters(Enemies);
                 System.Environment.Exit(0);
             }
         }
@@ -52,6 +56,8 @@ namespace OONV
         // method for DMG DEAL
         public static void Fight (Character character1, Character character2)
         {
+            Console.WriteLine(" ");
+            Console.WriteLine("---------------------------------");
             Console.WriteLine("|{0}| is fighting |{1}|", character1.Name, character2.Name);
             int dmgCalc = character1.DealDmg() - character2.def;
             if (dmgCalc > 0)
@@ -68,8 +74,13 @@ namespace OONV
             }
         }
 
-        public static void AIMenu ()
+        public static void HealCharacter (Character character)
         {
+            Console.WriteLine("------------------------");
+            var oldHP = character.Hp;
+            character.Heal();
+            Console.WriteLine("|{0}| healed from |{1}|HPs to |{2}|Hps.", character.Name, oldHP, character.Hp);
+            Console.WriteLine("------------------------");
         }
 
         public static void printCharacters (List<Character> list)
@@ -94,6 +105,7 @@ namespace OONV
             bool success = false;
             while (!success) 
             {
+                Console.WriteLine(" ");
                 Console.WriteLine("------------------------");
                 Console.WriteLine("1. Show possible heroes.");
                 Console.WriteLine("2. Show all about heroes.");
@@ -103,6 +115,7 @@ namespace OONV
                 Console.WriteLine("6. Show possible enemies.");
                 Console.WriteLine("7. Show all about enemies.");
                 Console.WriteLine("------------------------");
+                Console.WriteLine(" ");
 
                 try
                 {
@@ -125,14 +138,27 @@ namespace OONV
                                 SwapCharacters(Heroes);
                                 continue;
                             case 4:
+                                Fight(Heroes[0], Enemies[0]);
+                                success = true;
                                 break;
                             case 5:
+                                Console.WriteLine(" ");
+                                HealCharacter(Heroes[0]);
+                                success = true;
                                 break;
                             case 6:
+                                Console.WriteLine(" ");
+                                printCharacters(Enemies);
                                 continue;
                             case 7:
+                                Console.WriteLine(" ");
+                                printCharactersWithStats(Enemies);
                                 continue;
                         }
+                    }
+                    else
+                    {
+                        Console.WriteLine("That`s not an option! Try it again!");
                     }
                 }
                 catch (FormatException) 
@@ -151,7 +177,6 @@ namespace OONV
         {
             Console.WriteLine("---------------------------------");
             Console.WriteLine("You chose to swap main character!\n");
-            Console.WriteLine(" ");
             for (int x = 0; x < list.Count; x++)
             {
                 Console.WriteLine("{0}. Name: |{1}|, class: |{2}|", x+1, list[x].Name, list[x].GetType().Name);
@@ -165,11 +190,21 @@ namespace OONV
                 try
                 {
                     Console.WriteLine(" ");
-                    Console.WriteLine("Which one is it gonna be: ");
+                    Console.Write("Which one is it gonna be: ");
                     enteredNumber = int.Parse(Console.ReadLine());
                     if (1 <= enteredNumber && enteredNumber <= countList+1)
                     {
-
+                        Character x;
+                        x = list[enteredNumber-1];
+                        list.RemoveAt(enteredNumber-1);
+                        list.Insert(0, x); 
+                        Console.WriteLine(" ");
+                        Console.WriteLine("Your main character is now |{0}|", list[0].Name);
+                        break;  
+                    }
+                    else
+                    {
+                        Console.WriteLine("That`s not an option! Try it again!");
                     }
                 }
                 catch (FormatException) 
@@ -240,6 +275,7 @@ namespace OONV
                     YourTurn(Heroes, Enemies);
                     ListHPCheck(Enemies);
                     controlNumber = 1;
+                    turns += 1;
                     continue;
                 }
                 else if (controlNumber == 1)
@@ -247,6 +283,7 @@ namespace OONV
                     AITurn(Heroes[0], Enemies[0]);
                     ListHPCheck(Heroes);
                     controlNumber = 0;
+                    turns += 1;
                     continue;
                 }
 
