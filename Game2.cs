@@ -197,7 +197,7 @@ namespace OONV
         public static List<Prototype> SwapCharacters (List<Prototype> list)
         {
             Console.WriteLine("---------------------------------");
-            Console.WriteLine("You chose to swap main character!\n");
+            Console.WriteLine("You chose to swap main character!");
             for (int x = 0; x < list.Count; x++)
             {
                 Console.WriteLine("{0}. Name: |{1}|, class: |{2}|", x+1, list[x].Name, list[x].GetType().Name);
@@ -306,7 +306,7 @@ namespace OONV
                     turns += 1;
                     continue;
                 }
-
+                
                 CheckEndgame(Heroes, Enemies);           
             }
         }

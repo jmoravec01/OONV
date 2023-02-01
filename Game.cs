@@ -49,7 +49,7 @@ namespace OONV
             {
                 Console.WriteLine("Winners are ENEMIES!");
                 Console.WriteLine(" ");
-                Console.Write("------------Survivors------------");
+                Console.WriteLine("------------Survivors------------");
                 printCharacters(Enemies);
                 Console.ReadKey();
                 System.Environment.Exit(0);

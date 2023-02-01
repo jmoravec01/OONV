@@ -65,9 +65,19 @@ namespace OONV
             
             Arcr prototype3 = new Arcr("Káčysmehc");
 
+            Prototype enemy1 = new HardD("enemy1");
+            Prototype enemy2 = enemy1.Clone();
+            Prototype enemy3 = enemy2.Clone();
+            enemy2.Name = "enemy2";
+            enemy3.Name = "enemy3";
+
+
             HeroesS.Add(prototype1);
             HeroesS.Add(monitor);
             EnemiesS.Add(prototype3);
+            EnemiesS.Add(enemy1);
+            EnemiesS.Add(enemy2);
+            EnemiesS.Add(enemy3);
 
             // prototype1.PrintStats();
             // prototype3.PrintStats();
