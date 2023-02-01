@@ -16,9 +16,9 @@ namespace OONV
             Warrior Pepa = new Warrior("Pepa");
             Morpheus Gandalf = new Morpheus("Gandalf");
             Archer Geralt = new Archer("Josef");
-            Hard Minecraft = new Hard("Fišer");
-            Hard Minecraft2 = new Hard("Beránek");
-            Hard Minecraft3 = new Hard("Škvor");
+            Hard Minecraft = new Hard("Fischer");
+            Hard Minecraft2 = new Hard("Bodiusu Maxius");
+            Hard Minecraft3 = new Hard("Škvorex");
 
             Heroes.Add(Gandalf);
             Heroes.Add(Pepa);
@@ -28,23 +28,41 @@ namespace OONV
 
             // HRA
 //-------------------------------------------
-            // Game.GameWelcome();
-            // Game.Run(Heroes, Enemies);
+            Game.GameWelcome();
+            Game.Run(Heroes, Enemies);
 //-------------------------------------------
 
-            // MEMENTO
+
+            // MEMENTO ASI?
 //-----------------------------------------------------------------------
-            MementoCareTaker _careTaker = new MementoCareTaker();
-            _careTaker.backup = Gandalf.CreateMemento();
-            System.Console.WriteLine(_careTaker.backup.getMementoDmg);
-            System.Console.WriteLine(Gandalf.Dmg);
-            Gandalf.Dmg = 555;
-            System.Console.WriteLine(Gandalf.Dmg);
-            Gandalf.MementoRollback(_careTaker.backup);
-            System.Console.WriteLine(Gandalf.Dmg);
+            // MementoCareTaker _careTaker = new MementoCareTaker();
+            // _careTaker.backup = Gandalf.CreateMemento();
+            // System.Console.WriteLine(_careTaker.backup.getMementoName());
+            // System.Console.WriteLine(" ");
+            // System.Console.WriteLine(_careTaker.backup.getMementoDmg() + " uložený dmg");
+            // System.Console.WriteLine(Gandalf.Dmg + " aktuální dmg");
+            // Game.printCharactersWithStats(Heroes);
+            // System.Console.WriteLine(" ");
+            // Gandalf.Dmg = 555;
+            // System.Console.WriteLine(Gandalf.Dmg + " změnený dmg");
+            // System.Console.WriteLine(_careTaker.backup.getMementoDmg() + " uložený dmg");
+            // Game.printCharactersWithStats(Heroes);
+            // System.Console.WriteLine(" ");
+            // System.Console.WriteLine(Gandalf.Dmg + " změněný dmg");
+            // Gandalf.MementoRollback(_careTaker.backup);
+            // System.Console.WriteLine(Gandalf.Dmg + " dmg po rollbacku");
 //-----------------------------------------------------------------------
 
-
+            // PROTOTYPE
+//-----------------------------------------------------------------------
+            // Prototype prototype1 = new Varyor("Chemsyčák");
+            // Arcr prototype3 = new Arcr("Káčysmehc");
+            // Prototype prototype2 = prototype1.Clone();
+            // System.Console.WriteLine(prototype1.Dmg);
+            // System.Console.WriteLine(prototype2.Dmg);
+            // System.Console.WriteLine(prototype3.Dmg);
+            // Varyor prototype12 = new Varyor("pepa");
+//-----------------------------------------------------------------------
         }
     }
 }

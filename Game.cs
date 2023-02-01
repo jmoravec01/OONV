@@ -42,6 +42,7 @@ namespace OONV
                 Console.WriteLine(" ");
                 Console.WriteLine("------------Survivors------------");
                 printCharacters(Heroes);
+                Console.ReadKey();
                 System.Environment.Exit(0);
             }
             else if (CheckList(Heroes))
@@ -50,6 +51,7 @@ namespace OONV
                 Console.WriteLine(" ");
                 Console.Write("------------Survivors------------");
                 printCharacters(Enemies);
+                Console.ReadKey();
                 System.Environment.Exit(0);
             }
         }
@@ -104,6 +106,7 @@ namespace OONV
 
         public static void YourTurn (List<Character> Heroes, List<Character> Enemies)
         {
+            MementoCareTaker _careTaker = new MementoCareTaker();
             int enteredNumber;
             bool success = false;
             while (!success) 
@@ -117,6 +120,8 @@ namespace OONV
                 Console.WriteLine("5. Heal.");
                 Console.WriteLine("6. Show possible enemies.");
                 Console.WriteLine("7. Show all about enemies.");
+                Console.WriteLine("8. Create MEMENTO.");
+                Console.WriteLine("9. Load MEMENTO.");
                 Console.WriteLine("------------------------");
                 Console.WriteLine(" ");
 
@@ -124,7 +129,7 @@ namespace OONV
                 {
                     Console.Write("What is your choice: ");
                     enteredNumber = int.Parse(Console.ReadLine());
-                    if (1 <= enteredNumber && enteredNumber <= 7)
+                    if (1 <= enteredNumber && enteredNumber <= 9)
                     {
                         switch (enteredNumber)
                         {
@@ -156,6 +161,21 @@ namespace OONV
                             case 7:
                                 Console.WriteLine(" ");
                                 printCharactersWithStats(Enemies);
+                                continue;
+
+                            //JEŽIŠ TO JE SRAČKA
+                            case 8:
+                                Console.WriteLine(" ");
+                                Console.WriteLine("Starting memento...");
+                                _careTaker.backup = Heroes[0].CreateMemento();
+                                Console.WriteLine("Memento of |{0}| done.", Heroes[0].Name);
+                                continue;
+                            case 9:
+                                System.Console.WriteLine(_careTaker.backup.getMementoName());
+                                Console.WriteLine(" ");
+                                Console.WriteLine("Rolling memento back...");
+                                Heroes[0].MementoRollback(_careTaker.backup);
+                                Console.WriteLine("Memento of |{0}| rolled back.", Heroes[0].Name);
                                 continue;
                         }
                     }
@@ -216,6 +236,11 @@ namespace OONV
                 }
             }
             return list;
+        }
+
+        public static void TurnPrototypeIntoCharacter (Character character, Prototype prototype)
+        {
+            Character a = new Character(prototype.Name);
         }
 
         // input matters

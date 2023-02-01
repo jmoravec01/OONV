@@ -38,6 +38,7 @@ namespace OONV
         {
             this.name = name;
         }
+        
 //-----------------------------------------------------------------------------------
         public Memento CreateMemento ()
         {
@@ -46,14 +47,15 @@ namespace OONV
 
         public void MementoRollback(Memento backup)
         {
-            Console.WriteLine("Starting rollback...");
-            this.name = backup.getMementoName();
-            this.dmg = backup.getMementoDmg();
-            this.hp = backup.getMementoHp();
-            this.def = backup.getMementoDef();
-            Console.WriteLine("Rollback done.");
+            Console.WriteLine("Starting rollback... ");
+            this.Name = backup.getMementoName();
+            this.Dmg = backup.getMementoDmg();
+            this.Hp = backup.getMementoHp();
+            this.Def = backup.getMementoDef();
+            Console.Write("Rollback done. ");
         }
 //-----------------------------------------------------------------------------------
+
         public int DealDmg()
         {
             Random r = new Random();

@@ -13,5 +13,5 @@ namespace OONV
             this.hp = 500;
             this.def = 20;
         }
-    }
+    } 
 }
