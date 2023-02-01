@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace OONV
 {
-    public class Game
+    public class Game2
     {
         // checks HP of all characters in list
-        public static List<Character> ListHPCheck(List<Character> list)
+        public static List<Prototype> ListHPCheck(List<Prototype> list)
         {
-            foreach(Character postava in list)
+            foreach(Prototype postava in list)
             {
                 if (postava.hp <= 0)
                 {
@@ -22,7 +22,7 @@ namespace OONV
         }
 
         // checks if list is empty (0)
-        public static bool CheckList (List<Character> list)
+        public static bool CheckList (List<Prototype> list)
         {
             if (list.Count == 0)
             {
@@ -34,7 +34,7 @@ namespace OONV
             }
         }
 
-        public static void CheckEndgame (List<Character> Heroes, List<Character> Enemies)
+        public static void CheckEndgame (List<Prototype> Heroes, List<Prototype> Enemies)
         {
             if (CheckList(Enemies))
             {
@@ -58,17 +58,17 @@ namespace OONV
 
 
         // method for DMG DEAL
-        public static void Fight (Character character1, Character character2)
+        public static void Fight (Prototype character1, Prototype character2)
         {
             Console.WriteLine(" ");
             Console.WriteLine("---------------------------------");
             Console.WriteLine("|{0}| is fighting |{1}|", character1.Name, character2.Name);
-            int dmgCalc = character1.DealDmg() - character2.def;
+            int dmgCalc = character1.DealDmg() - character2.Def;
             if (dmgCalc > 0)
             {
                 character2.GetDmg(dmgCalc);
                 Console.WriteLine("Champion |{0}| dealt [{1}]DMG!", character1.Name, dmgCalc);
-                Console.WriteLine("|{0}| HPs went down to [{1}]HP", character2.Name, character2.hp);
+                Console.WriteLine("|{0}| HPs went down to [{1}]HP", character2.Name, character2.Hp);
                 Console.WriteLine("---------------------------------");
             }
             else
@@ -79,7 +79,7 @@ namespace OONV
         }
 
         // maybe fix over-HP-healing?
-        public static void HealCharacter (Character character)
+        public static void HealCharacter (Prototype character)
         {
             Console.WriteLine("------------------------");
             var oldHP = character.Hp;
@@ -88,7 +88,7 @@ namespace OONV
             Console.WriteLine("------------------------");
         }
 
-        public static void printCharacters (List<Character> list)
+        public static void printCharacters (List<Prototype> list)
         {
             for (int x = 0; x < list.Count; x++)
             {
@@ -96,7 +96,7 @@ namespace OONV
             }
         }
 
-        public static void printCharactersWithStats (List<Character> list)
+        public static void printCharactersWithStats (List<Prototype> list)
         {
             for (int x = 0; x < list.Count; x++)
             {
@@ -104,7 +104,7 @@ namespace OONV
             }
         }
 
-        public static void YourTurn (List<Character> Heroes, List<Character> Enemies)
+        public static void YourTurn (List<Prototype> Heroes, List<Prototype> Enemies)
         {
             MementoCareTaker _careTaker = new MementoCareTaker();
             int enteredNumber;
@@ -191,12 +191,12 @@ namespace OONV
             }
         }
 
-        public static void AITurn (Character Hero, Character Enemy)
+        public static void AITurn (Prototype Hero, Prototype Enemy)
         {
             Fight(Enemy, Hero);
         }
 
-        public static List<Character> SwapCharacters (List<Character> list)
+        public static List<Prototype> SwapCharacters (List<Prototype> list)
         {
             Console.WriteLine("---------------------------------");
             Console.WriteLine("You chose to swap main character!\n");
@@ -217,7 +217,7 @@ namespace OONV
                     enteredNumber = int.Parse(Console.ReadLine());
                     if (1 <= enteredNumber && enteredNumber <= countList+1)
                     {
-                        Character x;
+                        Prototype x;
                         x = list[enteredNumber-1];
                         list.RemoveAt(enteredNumber-1);
                         list.Insert(0, x); 
@@ -282,7 +282,7 @@ namespace OONV
             }
         }
 
-        public static void Run (List<Character> Heroes, List<Character> Enemies)
+        public static void Run (List<Prototype> Heroes, List<Prototype> Enemies)
         {
             bool end = false;
             int controlNumber = 0;

@@ -17,7 +17,7 @@ namespace OONV
             Morpheus Gandalf = new Morpheus("Gandalf");
             Archer Geralt = new Archer("Josef");
             Hard Minecraft = new Hard("Fischer");
-            Hard Minecraft2 = new Hard("Bodiusu Maxius");
+            Hard Minecraft2 = new Hard("Bodius Maxius");
             Hard Minecraft3 = new Hard("Škvorex");
 
             Heroes.Add(Gandalf);
@@ -28,8 +28,8 @@ namespace OONV
 
             // HRA
 //-------------------------------------------
-            Game.GameWelcome();
-            Game.Run(Heroes, Enemies);
+            // Game.GameWelcome();
+            // Game.Run(Heroes, Enemies);
 //-------------------------------------------
 
 
@@ -62,6 +62,21 @@ namespace OONV
             // System.Console.WriteLine(prototype2.Dmg);
             // System.Console.WriteLine(prototype3.Dmg);
             // Varyor prototype12 = new Varyor("pepa");
+
+            List<Prototype> HeroesS = new List<Prototype>();
+            List<Prototype> EnemiesS = new List<Prototype>();
+
+            Prototype prototype1 = new Varyor("Chemsyčák");
+            Arcr prototype3 = new Arcr("Káčysmehc");
+
+            HeroesS.Add(prototype1);
+            EnemiesS.Add(prototype3);
+
+            prototype1.PrintHP();
+            prototype1.GetDmg(100);
+            prototype1.PrintHP();
+
+
 //-----------------------------------------------------------------------
         }
     }

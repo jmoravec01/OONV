@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace OONV
 {
-    public abstract class Prototype
+    public abstract class Prototype : ICharacter
     {
         public string Name { get; set; }
         public int Dmg { get; set; }
@@ -21,6 +21,40 @@ namespace OONV
         }
 
         public abstract Prototype Clone();
+
+        public int DealDmg()
+        {
+            Random r = new Random();
+            int rInt = r.Next(0, 100);
+
+            if (rInt > 75) // critical chance 25%
+            {
+                return 2*Dmg;
+            }
+            else
+            {
+                return Dmg;
+            }
+        }
+        public void GetDmg(int dmg)
+        {
+            this.Hp -= dmg;
+        }
+
+        public void Heal()
+        {
+            this.Hp += 40;
+        }
+
+        public void PrintStats()
+        {
+            Console.WriteLine("Champion stats: {0}⚔️ / {1}❤️ / {2}🛡️", Dmg, Hp, Def);
+        }
+
+        public void PrintHP()
+        {
+            Console.WriteLine("Champion has {0}❤️", Hp);
+        }
     }
 
     class Varyor : Prototype
@@ -29,7 +63,7 @@ namespace OONV
 
         public override Prototype Clone()
         {
-            return (Prototype)this.MemberwiseClone();
+            return (Varyor)this.MemberwiseClone();
         }
     }
 
@@ -39,7 +73,7 @@ namespace OONV
 
         public override Prototype Clone()
         {
-            return (Prototype)this.MemberwiseClone();
+            return (Arcr)this.MemberwiseClone();
         }
     }
 
@@ -49,7 +83,7 @@ namespace OONV
 
         public override Prototype Clone()
         {
-            return (Prototype)this.MemberwiseClone();
+            return (Mejdz)this.MemberwiseClone();
         }
     }
 
@@ -59,7 +93,7 @@ namespace OONV
 
         public override Prototype Clone()
         {
-            return (Prototype)this.MemberwiseClone();
+            return (WeakK)this.MemberwiseClone();
         }
     }
 
@@ -69,7 +103,7 @@ namespace OONV
 
         public override Prototype Clone()
         {
-            return (Prototype)this.MemberwiseClone();
+            return (NormalL)this.MemberwiseClone();
         }
     }
 
@@ -79,7 +113,7 @@ namespace OONV
 
         public override Prototype Clone()
         {
-            return (Prototype)this.MemberwiseClone();
+            return (HardD)this.MemberwiseClone();
         }
     }
 }
