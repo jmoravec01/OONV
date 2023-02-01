@@ -55,28 +55,25 @@ namespace OONV
 
             // PROTOTYPE
 //-----------------------------------------------------------------------
-            // Prototype prototype1 = new Varyor("Chemsyčák");
-            // Arcr prototype3 = new Arcr("Káčysmehc");
-            // Prototype prototype2 = prototype1.Clone();
-            // System.Console.WriteLine(prototype1.Dmg);
-            // System.Console.WriteLine(prototype2.Dmg);
-            // System.Console.WriteLine(prototype3.Dmg);
-            // Varyor prototype12 = new Varyor("pepa");
-
             List<Prototype> HeroesS = new List<Prototype>();
             List<Prototype> EnemiesS = new List<Prototype>();
 
             Prototype prototype1 = new Varyor("Chemsyčák");
+
+            Prototype monitor = prototype1.Clone();
+            monitor.Name = "aoc";
+            
             Arcr prototype3 = new Arcr("Káčysmehc");
 
             HeroesS.Add(prototype1);
+            HeroesS.Add(monitor);
             EnemiesS.Add(prototype3);
 
-            prototype1.PrintHP();
-            prototype1.GetDmg(100);
-            prototype1.PrintHP();
-
-
+            // prototype1.PrintStats();
+            // prototype3.PrintStats();
+            // monitor.PrintStats();
+            Game2.GameWelcome();
+            Game2.Run(HeroesS, EnemiesS);
 //-----------------------------------------------------------------------
         }
     }

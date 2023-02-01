@@ -48,12 +48,12 @@ namespace OONV
 
         public void PrintStats()
         {
-            Console.WriteLine("Champion stats: {0}⚔️ / {1}❤️ / {2}🛡️", Dmg, Hp, Def);
+            Console.WriteLine("|{0}|`s stats: {1}⚔️ / {2}❤️ / {3}🛡️", Name, Dmg, Hp, Def);
         }
 
         public void PrintHP()
         {
-            Console.WriteLine("Champion has {0}❤️", Hp);
+            Console.WriteLine("|{0}| has {1}❤️", Name, Hp);
         }
     }
 
