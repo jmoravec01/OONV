@@ -55,35 +55,35 @@ namespace OONV
 
             // PROTOTYPE
 //-----------------------------------------------------------------------
-            List<Prototype> HeroesS = new List<Prototype>();
-            List<Prototype> EnemiesS = new List<Prototype>();
+            // List<Prototype> HeroesS = new List<Prototype>();
+            // List<Prototype> EnemiesS = new List<Prototype>();
 
-            Prototype prototype1 = new Varyor("Chemsyčák");
+            // Prototype prototype1 = new Varyor("Chemsyčák");
 
-            Prototype monitor = prototype1.Clone();
-            monitor.Name = "aoc";
+            // Prototype monitor = prototype1.Clone();
+            // monitor.Name = "aoc";
             
-            Arcr prototype3 = new Arcr("Káčysmehc");
+            // Arcr prototype3 = new Arcr("Káčysmehc");
 
-            Prototype enemy1 = new HardD("enemy1");
-            Prototype enemy2 = enemy1.Clone();
-            Prototype enemy3 = enemy2.Clone();
-            enemy2.Name = "enemy2";
-            enemy3.Name = "enemy3";
+            // Prototype enemy1 = new HardD("enemy1");
+            // Prototype enemy2 = enemy1.Clone();
+            // Prototype enemy3 = enemy2.Clone();
+            // enemy2.Name = "enemy2";
+            // enemy3.Name = "enemy3";
 
 
-            HeroesS.Add(prototype1);
-            HeroesS.Add(monitor);
-            EnemiesS.Add(prototype3);
-            EnemiesS.Add(enemy1);
-            EnemiesS.Add(enemy2);
-            EnemiesS.Add(enemy3);
+            // HeroesS.Add(prototype1);
+            // HeroesS.Add(monitor);
+            // EnemiesS.Add(prototype3);
+            // EnemiesS.Add(enemy1);
+            // EnemiesS.Add(enemy2);
+            // EnemiesS.Add(enemy3);
 
-            // prototype1.PrintStats();
-            // prototype3.PrintStats();
-            // monitor.PrintStats();
-            Game2.GameWelcome();
-            Game2.Run(HeroesS, EnemiesS);
+            // // prototype1.PrintStats();
+            // // prototype3.PrintStats();
+            // // monitor.PrintStats();
+            // Game2.GameWelcome();
+            // Game2.Run(HeroesS, EnemiesS);
 //-----------------------------------------------------------------------
         }
     }

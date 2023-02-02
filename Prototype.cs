@@ -59,11 +59,14 @@ namespace OONV
 
     class Varyor : Prototype
     {
+        int enteredNumber;
         public Varyor(string name, int dmg = 50, int hp = 500, int def = 40) : base(name, dmg, hp, def) { }
 
         public override Prototype Clone()
         {
-            return (Varyor)this.MemberwiseClone();
+            enteredNumber = int.Parse(Console.ReadLine());
+            this.Hp = enteredNumber;
+            return new Varyor(this.Name, this.Hp, this.Dmg, this.Def); //je this nutný?
         }
     }
 

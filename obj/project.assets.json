@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MEGA\\Škola\\Programy\\C#\\OONV\\OONV.csproj",
+      "projectUniqueName": "C:\\Users\\kubik\\Desktop\\OONV\\OONV.csproj",
       "projectName": "OONV",
-      "projectPath": "D:\\MEGA\\Škola\\Programy\\C#\\OONV\\OONV.csproj",
+      "projectPath": "C:\\Users\\kubik\\Desktop\\OONV\\OONV.csproj",
       "packagesPath": "C:\\Users\\kubik\\.nuget\\packages\\",
-      "outputPath": "D:\\MEGA\\Škola\\Programy\\C#\\OONV\\obj\\",
+      "outputPath": "C:\\Users\\kubik\\Desktop\\OONV\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kubik\\AppData\\Roaming\\NuGet\\NuGet.Config"
